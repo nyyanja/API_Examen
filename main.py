@@ -30,3 +30,13 @@ def add_students(new_students: List[Student]):
 @app.get("/students")
 def get_students():
     return students_db
+
+#question 5
+@app.put("/students")
+def update_or_add_student(student: Student):
+    for i, s in enumerate(students_db):
+        if s.Reference == student.Reference:
+            students_db[i] = student
+            return {"message": "Student updated", "students": students_db}
+    students_db.append(student)
+    return {"message": "Student added", "students": students_db}
