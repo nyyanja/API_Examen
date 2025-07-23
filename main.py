@@ -40,3 +40,11 @@ def update_or_add_student(student: Student):
             return {"message": "Student updated", "students": students_db}
     students_db.append(student)
     return {"message": "Student added", "students": students_db}
+
+#question bonus
+def get_students_authorized(authorization: Optional[str] = Header(None)):
+    if authorization is None:
+        raise HTTPException(status_code=401, detail="Unauthorized: Missing Authorization header")
+    if authorization != "bon courage":
+        raise HTTPException(status_code=403, detail="Forbidden: Invalid Authorization value")
+    return students_db
