@@ -1,0 +1,122 @@
+{
+  "info": {
+    "_postman_id": "f02b437b-168d-44e9-80de-collection-test-001",
+    "name": "API Test Examen",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Q1 - GET /hello",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/hello",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["hello"]
+        }
+      }
+    },
+    {
+      "name": "Q2 - GET /welcome",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/welcome?name=Marie",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["welcome"],
+          "query": [
+            {
+              "key": "name",
+              "value": "Ny Anja"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Q3 - POST /students",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"Reference\": \"ST01\",\n    \"FirstName\": \"Alice\",\n    \"LastName\": \"Dupont\",\n    \"Age\": 21\n  },\n  {\n    \"Reference\": \"ST02\",\n    \"FirstName\": \"Bob\",\n    \"LastName\": \"Durand\",\n    \"Age\": 22\n  }\n]"
+        },
+        "url": {
+          "raw": "http://localhost:8000/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["students"]
+        }
+      }
+    },
+    {
+      "name": "Q4 - GET /students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["students"]
+        }
+      }
+    },
+    {
+      "name": "Q5 - PUT /students",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Reference\": \"ST01\",\n  \"FirstName\": \"Alice\",\n  \"LastName\": \"Martin\",\n  \"Age\": 22\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["students"]
+        }
+      }
+    },
+    {
+      "name": "Bonus - GET /students-authorized",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "bon courage"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/students-authorized",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["students-authorized"]
+        }
+      }
+    }
+  ]
+}
