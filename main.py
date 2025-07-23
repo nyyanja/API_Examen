@@ -25,3 +25,8 @@ class Student(BaseModel):
 def add_students(new_students: List[Student]):
     students_db.extend(new_students)
     return students_db
+
+#question 4
+@app.get("/students")
+def get_students():
+    return students_db
